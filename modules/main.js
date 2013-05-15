@@ -35,5 +35,15 @@ var GameScene = pc.Scene.extend("GameScene",
     gameLayer: null,
     init: function () {
       this._super();
+
+      var canvasWidth = pc.device.canvasWidth,
+        canvasHeight = pc.device.canvasHeight;
+
+      pc.device.ctx.rect(0, 0, canvasWidth, canvasHeight);
+      pc.device.ctx.fill();
+    },
+
+    process: function () {
+
     }
   });
