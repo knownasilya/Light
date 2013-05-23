@@ -26,7 +26,7 @@ var TheGame = pc.Game.extend('TheGame',
     },
 
     onLoaded: function () {
-      var layer = new GameLayer();
+      var layer = new GameLayer("Test", 1);
       this.myGameScene = new GameScene();
 
       this.myGameScene.addLayer(layer);
@@ -60,7 +60,7 @@ var GameLayer = pc.Layer.extend("GameLayer",
     player: null,
 
     init: function () {
-      this._super("my layer", 1);
+      this._super("Test", 1);
 
       this.player = pc.device.loader.get("player").resource;
     },
@@ -68,9 +68,5 @@ var GameLayer = pc.Layer.extend("GameLayer",
     draw: function () {
       var ctx = pc.device.ctx;
       this.player.draw(ctx, 100, 100);
-    },
-
-    process: function () {
-
     }
   });
