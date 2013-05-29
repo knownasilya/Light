@@ -26,11 +26,9 @@ var TheGame = pc.Game.extend('TheGame',
     },
 
     onLoaded: function () {
-      var background = new BackgroundLayer("Background", 1);
       var layer = new GameLayer("Test", 2);
       this.myGameScene = new GameScene();
 
-      this.myGameScene.addLayer(background);
       this.myGameScene.addLayer(layer);
 
       this.addScene( this.myGameScene );
