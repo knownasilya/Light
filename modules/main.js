@@ -42,15 +42,20 @@ var GameScene = pc.Scene.extend("GameScene",
     init: function () {
       this._super();
 
+      this.fillBackground();
+    },
+
+    process: function () {
+      this._super();
+      // this.fillBackground();
+    },
+
+    fillBackground: function () {
       var canvasWidth = pc.device.canvasWidth,
         canvasHeight = pc.device.canvasHeight;
 
       pc.device.ctx.rect(0, 0, canvasWidth, canvasHeight);
       pc.device.ctx.fill();
-    },
-
-    process: function () {
-
     }
   });
 
@@ -58,15 +63,18 @@ var GameLayer = pc.Layer.extend("GameLayer",
   {},
   { 
     player: null,
+    entityImage: null,
 
     init: function () {
       this._super("Test", 1);
 
+      this.entityImage = pc.device.loader.get("empty").resource;
       this.player = pc.device.loader.get("player").resource;
     },
 
     draw: function () {
       var ctx = pc.device.ctx;
       this.player.draw(ctx, 100, 100);
+      this.entityImage.draw(ctx, 250, 300);
     }
   });
